@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Item List</h1>
+  <a href="{% url 'item_create' %}">Create New Item</a>
+  <ul>
+    {% for item in items %}
+      <li>
+        {{ item.name }} - {{ item.description }}
+        <a href="{% url 'item_update' item.pk %}">Edit</a>
+        <a href="{% url 'item_delete' item.pk %}">Delete</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
